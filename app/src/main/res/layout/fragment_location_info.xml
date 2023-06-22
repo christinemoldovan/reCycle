@@ -1,0 +1,159 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="20dp"
+    app:strokeColor="?attr/colorSecondaryVariant"
+    app:cardBackgroundColor="?attr/colorBackgroundFloating"
+    app:strokeWidth="1dp"
+    android:padding="5dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/goToLocationButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_marginRight="30dp"
+                    android:text="GO" />
+
+                <ImageView
+                    android:id="@+id/favoriteButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_unfav_24">
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/unfavoriteButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_favorite_24">
+                </ImageView>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/distanceHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Distance to recycling point:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/distanceValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Example of distance in km"
+                android:textColor="@color/green_900"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/primaryAddressHeadline"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address line 1:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/primaryAddressDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Example of address 1"
+                android:textColor="@color/green_900"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/secondaryAddressHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Address line 2:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/secondaryAddressDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Example of address 2"
+                android:textColor="@color/green_900"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/addressTitleHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Address title:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/addressTitleDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Example of title"
+                android:textColor="@color/green_900"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/recyclingPointsHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Recycling point type:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/recyclingPointsDetails"
+                android:layout_width="match_parent"
+                android:textColor="@color/green_900"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/descriptionHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Address description:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/descriptionDetails"
+                android:layout_width="match_parent"
+                android:textColor="@color/green_900"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </ScrollView>
+</com.google.android.material.card.MaterialCardView>

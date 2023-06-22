@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.WasteClassifier"
+    tools:context=".fragment.WasteClassifierFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="300sp"
+                android:layout_height="300sp"
+                android:layout_marginTop="10sp"
+                android:visibility="gone"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/classifiedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="Classified as:"
+                android:visibility="gone"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="result"
+                android:visibility="gone"
+                android:textColor="#40513B"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/confidencesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="Confidences:"
+                android:visibility="gone"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/confidence"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:textColor="#000"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/infoPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:text="Please aim the camera at the object you want to recognize"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/photoCard"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="5dp"
+                android:elevation="10dp">
+
+                <ImageView
+                    android:id="@+id/photoDemo"
+                    android:layout_width="200dp"
+                    android:layout_height="300dp"
+                    android:background="@color/white"
+                    android:scaleType="center"
+                    android:src="@drawable/bottledemo" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/infoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:layout_marginBottom="35dp"
+                android:text="Tips for taking a good picture:\n- Hold the camera steady\n- Ensure proper lighting\n- Frame the subject correctly"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/takePicture_button"
+                android:layout_width="48dp"
+                android:layout_height="46dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="#9DC08B"
+                android:scaleType="center"
+                android:src="@drawable/ic_add_a_photo_white_24"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:maxImageSize="56dp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

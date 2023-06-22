@@ -1,0 +1,26 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    app:cardBackgroundColor="?attr/colorBackgroundFloating"
+    app:cardCornerRadius="20dp"
+    app:strokeColor="?attr/colorSecondaryVariant"
+    app:strokeWidth="1dp">
+
+    <ListView
+        android:id="@+id/locationListView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:paddingBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"/>
+
+</com.google.android.material.card.MaterialCardView>

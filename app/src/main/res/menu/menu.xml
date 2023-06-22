@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Homepage"
+        android:icon="@drawable/ic_home_white_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/Maps"
+        android:icon="@drawable/ic_map_white_24"
+        android:title="Maps" />
+    <item
+        android:id="@+id/Classifier"
+        android:icon="@drawable/ic_recycling_white_24"
+        android:title="Classifier" />
+    <item
+        android:id="@+id/Profile"
+        android:icon="@drawable/ic_person_green_24dp"
+        android:title="Profile" />
+</menu>

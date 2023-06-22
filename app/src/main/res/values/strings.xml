@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">reCycle</string>
+    <string name="googleApi">AIzaSyCvgChVLLcqoGTRISlkhVZd4SFIL1ZChnk</string>
+
+    <!--    Login/Register page-->
+    <string name="existing_email">The email is already associated to an account!</string>
+    <string name="invalid_email">Invalid email address</string>
+    <string name="invalid_password">Password should be at least 6 characters</string>
+    <string name="invalid_login_password">Incorrect password</string>
+    <string name="email_for_reset">Email address</string>
+    <string name="reset_password_title">Reset Password</string>
+    <string name="reset_password_description">Enter the email address associated with your account and we\'ll send an email with instruction to reset your password.</string>
+
+    <!--    Profile page-->
+    <string name="account_details">Account details</string>
+    <string name="email_example">test@test.com</string>
+    <string name="phone_number_example">0123 456 789</string>
+    <string name="logout">Logout</string>
+    <string name="change_phone">Change phone</string>
+    <string name="change_password">Change password</string>
+    <string name="cancel">Cancel</string>
+    <string name="okay">Okay</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Add marker -->
+    <string name="optional">\tOptional</string>
+
+    <!-- Errors-->
+    <string name="emptyField">Field cannot be empty.</string>
+    <string name="paper">Paper</string>
+    <string name="plastic">Plastic</string>
+    <string name="glass">Glass</string>
+    <string name="metal">Metal</string>
+
+</resources>
