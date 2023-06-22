@@ -243,93 +243,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         binding.suggestAddLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                final androidx.appcompat.app.AlertDialog.Builder alert = new androidx.appcompat.app.AlertDialog.Builder(getContext());
-//                View mView = getLayoutInflater().inflate(R.layout.custom_dialog, null);
-//                final TextView title = (TextView) mView.findViewById(R.id.titleDialog);
-//                final TextView description = (TextView) mView.findViewById(R.id.descriptionDialog);
-//                final EditText locationAddress = (EditText) mView.findViewById(R.id.dialog_textEdit); //is needed
-//                locationAddress.setHint("Str Memorandumului 28, Cluj-Napoca 400114");
-//                title.setText("Propose a new recycling location");
-//                description.setText("Please provide a complete and specific street address, including any necessary building or unit numbers, to ensure the accuracy of the proposed recycling point location.");
-//                Button cancelButton = (Button) mView.findViewById(R.id.cancelDialog_button);
-//                Button okayButton = (Button) mView.findViewById(R.id.okayDialog_button);
-//                okayButton.setText("NEXT");
-//                alert.setView(mView);
-//                final AlertDialog alertDialog = alert.create();
-//                alertDialog.setCanceledOnTouchOutside(false);
-//                cancelButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        alertDialog.dismiss();
-//                    }
-//                });
-//                okayButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Geocoder geocoder = new Geocoder(getContext());
-//                        List<Address> list = new ArrayList<>();
-//                        try {
-//                            list = geocoder.getFromLocationName(locationAddress.getText().toString(), 5);
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                        if (list.size() > 0) {
-//                            Address address = list.get(0);
-//                            String location = address.getAdminArea();
-//                            double latitude = address.getLatitude();
-//                            double longitude = address.getLongitude();
-//                            m_addressLines = address.getAddressLine(0);
-//                            m_postalCode = address.getPostalCode();
-//                            System.out.println(location);
-//                            goToLatLng(latitude, longitude, 17f);
-//                            markerOptions = new MarkerOptions();
-//                            markerOptions.title(location);
-//                            markerOptions.draggable(true);
-//                            markerOptions.icon(bitmapDescriptorFromVector(getActivity(), R.drawable.recyclingpointred));
-//                            markerOptions.position(new LatLng(latitude, longitude));
-//                            marker = mMap.addMarker(markerOptions);
-//                            marker.setTag("user" + email);
-//                            userSuggestedMarker = marker;
-//                        }
-//
-//                        if (userSuggestedMarker != null) {
-//                            alertDialog.dismiss();
-//                            Toast.makeText(getActivity(), "Drag marker to desired position", Toast.LENGTH_SHORT).show();
-//                            mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
-//                                @Override
-//                                public void onMarkerDrag(@NonNull Marker marker) {
-//
-//                                }
-//
-//                                @Override
-//                                public void onMarkerDragEnd(@NonNull Marker marker) {
-//                                    String latValue = Double.toString(marker.getPosition().latitude);
-//                                    String lngValue = Double.toString(marker.getPosition().longitude);
-//
-//                                    if (!latValue.isEmpty() && !lngValue.isEmpty()) {
-//                                        Bundle bundle = new Bundle();
-//                                        bundle.putString("latitude", latValue);
-//                                        bundle.putString("longitude", lngValue);
-//                                        bundle.putString("address", m_addressLines);
-//                                        bundle.putString("postalCode", m_postalCode);
-//                                        bundle.putString("email", email);
-//                                        Fragment fragment = new SuggestAddLocationFragment();
-//                                        fragment.setArguments(bundle);
-//                                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                                        transaction.replace(R.id.container, fragment).addToBackStack("suggest").setReorderingAllowed(true).commit();
-//                                    }
-//                                }
-//
-//                                @Override
-//                                public void onMarkerDragStart(@NonNull Marker marker) {
-//                                }
-//                            });
-//                        } else {
-//                            Toast.makeText(getActivity(), "Invalid location address", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//                alertDialog.show();
                 if (isNetworkAvailable() != 0) {
                     hideMarkerPopup();
                     hideInfoPopup();
@@ -353,11 +266,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void mapInitialize() {
-//        LocationRequest locationRequest = new LocationRequest();
-//        locationRequest.setInterval(5000);
-//        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-//        locationRequest.setSmallestDisplacement(16);
-//        locationRequest.setFastestInterval(3000);
         LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 2000)
                 .setWaitForAccurateLocation(false)
                 .setMinUpdateIntervalMillis(1000)
@@ -500,37 +408,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                     }
                 });
 
-                // add markers to map from database
-//                databaseReferenceMarkers.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        allMarkers.clear();
-//                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                            System.out.println("^^^^^^^^^^^^^^^^^");
-//                            MapMarker mapMarker = dataSnapshot.getValue(MapMarker.class);
-//                            LatLng latLng = new LatLng(mapMarker.getLatitude(), mapMarker.getLongitude());
-//                            String recyclingPoint = mapMarker.getRecyclePoint();
-//                            String[] recyclingSplitPoints = recyclingPoint.split("(?=[A-Z])");
-//                            String finalRecyclingPoints = String.join(" ", recyclingSplitPoints);
-//                            markerOptions = new MarkerOptions();
-//                            markerOptions.position(latLng).icon(bitmapDescriptorFromVector(getActivity(), R.drawable.recyclingpoint));
-//                            markerOptions.title(mapMarker.getPrimaryAddress());
-//                            markerOptions.snippet(finalRecyclingPoints);
-//                            System.out.println(mapMarker.getLatitude());
-//                            System.out.println(mapMarker.getLongitude());
-//                            marker = mMap.addMarker(markerOptions);
-//                            marker.setTag(dataSnapshot.getKey());
-//                            System.out.println(marker.getTag());
-//                            allMarkers.add(markerOptions);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-
                 userSuggestedMarkersReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -556,10 +433,12 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 });
 
             }
+
             @Override
             public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
                 Toast.makeText(getContext(), "Permission for location was denied. Please review application permissions.", Toast.LENGTH_LONG).show();
             }
+
             @Override
             public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
                 permissionToken.continuePermissionRequest();
@@ -789,7 +668,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                     hideInfoPopup();
                     hideLocationListPopup();
                     hideUserSuggestedLocationListPopup();
-                    //mMap.setOnMapLongClickListener(null);
                 }
             });
 
@@ -870,28 +748,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                         if (isAdmin) {
                             adminsPanelLayout.setVisibility(View.VISIBLE);
                         }
-//                        Query query = usersReference.orderByChild("email").equalTo(email);
-//                        query.addListenerForSingleValueEvent(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                if (snapshot.exists()) {
-//                                    System.out.println("Exists");
-//                                    for (DataSnapshot child : snapshot.getChildren()) {
-//                                        System.out.println("enters");
-//                                        User existingUser = child.getValue(User.class);
-//                                        if (existingUser.getIsAdmin() == true) {
-//                                            isAdmin = true;
-//                                            adminsPanelLayout.setVisibility(View.VISIBLE);
-//                                        }
-//                                    }
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                            }
-//                        });
                     } else {
                         adminsPanelLayout.setVisibility(View.VISIBLE);
                     }
@@ -1016,25 +872,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                                         for (DataSnapshot child : snapshot.getChildren()) {
                                             MapMarker existingMarker = child.getValue(MapMarker.class);
                                             if (existingMarker.getLongitude() == longitude) {
-//                                                String key = child.getKey();
-//                                                Bundle bundle = new Bundle();
-//                                                bundle.putDouble("latitude", existingMarker.getLatitude());
-//                                                bundle.putDouble("longitude", existingMarker.getLongitude());
-//                                                bundle.putString("description", existingMarker.getDescriptionAddress());
-//                                                bundle.putString("primaryAddress", existingMarker.getPrimaryAddress());
-//                                                bundle.putString("secondaryAddress", existingMarker.getSecondaryAddress());
-//                                                bundle.putString("titleAddress", existingMarker.getTitleAddress());
-//                                                bundle.putString("recyclingPoints", existingMarker.getRecyclePoint());
-//                                                bundle.putDouble("currentLat", currentLatLng.latitude);
-//                                                bundle.putDouble("currentLng", currentLatLng.longitude);
-//                                                bundle.putString("email", email);
-//                                                lastClickedPosition = lastClickedMarkerPosition;
-//                                                Fragment fragment = new LocationInfoFragment();
-//                                                fragment.setArguments(bundle);
-//                                                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                                                transaction.replace(R.id.container, fragment).addToBackStack("info").setReorderingAllowed(true).commit();
-//
-                                                //sau
                                                 lastClickedPosition = lastClickedMarkerPosition;
                                                 View infoView = getLayoutInflater().inflate(R.layout.fragment_location_info, null);
                                                 infoPopupWindow = new PopupWindow(infoView, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);

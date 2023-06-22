@@ -41,7 +41,6 @@ public class SuggestAddLocationFragment extends Fragment {
     DatabaseReference userSuggestedMarkersRef;
     private TextView markerDescriptionEditText;
     private TextInputLayout titleLayout, addressOneLayout, addressTwoLayout, descriptionLayout;
-    // private Spinner recycleDropdown;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6;
 
     @Override

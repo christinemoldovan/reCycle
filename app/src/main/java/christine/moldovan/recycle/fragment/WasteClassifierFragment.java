@@ -90,9 +90,6 @@ public class WasteClassifierFragment extends Fragment {
 
 
         takePhoto.setEnabled(false);
-//        classifiedText.setVisibility(View.INVISIBLE);
-//        confidenceText.setVisibility(View.INVISIBLE);
-//        result.setVisibility(View.INVISIBLE);
 
         downloadModel();
 
@@ -106,7 +103,6 @@ public class WasteClassifierFragment extends Fragment {
         handler.postDelayed(r, 5000);
 
         //Request camera permission if we don't have it.
-        //  requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
         ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, 100);
         takePhoto.setOnClickListener(new View.OnClickListener() {
             @Override

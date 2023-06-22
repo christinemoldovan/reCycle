@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -27,6 +26,7 @@ public class HomepageActivity extends AppCompatActivity {
     ActivityHomepageBinding binding;
     Fragment currentActive = fragmentDashboard;
     private String email;
+
     public HomepageActivity() {
         super();
     }
@@ -48,7 +48,6 @@ public class HomepageActivity extends AppCompatActivity {
         fragmentMaps.setArguments(bundle);
         fragmentProfile.setArguments(bundle);
         fragmentDashboard.setArguments(bundle);
-        //ReplaceFragment(new HomepageFragment());
 
         fm.beginTransaction().add(R.id.container, fragmentMaps, "maps").hide(fragmentMaps).commit();
         fm.beginTransaction().add(R.id.container, fragmentClassifier, "classifier").hide(fragmentClassifier).commit();
@@ -79,12 +78,5 @@ public class HomepageActivity extends AppCompatActivity {
                 return true;
             }
         });
-    }
-
-    private void ReplaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, fragment);
-        fragmentTransaction.commit();
     }
 }

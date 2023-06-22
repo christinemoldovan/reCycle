@@ -41,7 +41,6 @@ public class AddLatLngFragment extends Fragment {
     DatabaseReference markersRef, userSuggestedMarkersRef;
     private TextView markerDescriptionEditText;
     private TextInputLayout titleLayout, addressOneLayout, addressTwoLayout, descriptionLayout;
-    // private Spinner recycleDropdown;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6;
 
     @Override
@@ -74,25 +73,12 @@ public class AddLatLngFragment extends Fragment {
         addressTwoLayout = (TextInputLayout) v.findViewById(R.id.AddressAddTwoLayout);
         descriptionLayout = (TextInputLayout) v.findViewById(R.id.descriptionLayout);
 
-//        recycleDropdown = (Spinner) v.findViewById(R.id.recycleDropdown);
         checkBox1 = (CheckBox) v.findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox) v.findViewById(R.id.checkBox2);
         checkBox3 = (CheckBox) v.findViewById(R.id.checkBox3);
         checkBox4 = (CheckBox) v.findViewById(R.id.checkBox4);
         checkBox5 = (CheckBox) v.findViewById(R.id.checkBox5);
         checkBox6 = (CheckBox) v.findViewById(R.id.checkBox6);
-
-//        RecycleTypes[] materials = RecycleTypes.values();
-//        String[] materialStrings = new String[materials.length];
-//        for (int i = 0; i < materials.length; i++) {
-//            materialStrings[i] = materials[i].toString();
-//        }
-
-//        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(requireContext(),
-//                android.R.layout.simple_spinner_dropdown_item, materialStrings);
-//
-//        binding.recycleDropdown.setAdapter(spinnerAdapter);
-//        binding.recycleDropdown.setSelection(0);
 
         Bundle bundle = this.getArguments();
         String latValue = bundle.getString("latitude");
@@ -310,10 +296,6 @@ public class AddLatLngFragment extends Fragment {
                                     markersRef.child(key).updateChildren(newValues);
                                     deleteUserSuggestedMarker(latitude, longitude);
                                     Toast.makeText(getActivity(), "Updated marker successfully!", Toast.LENGTH_LONG).show();
-//                                    Fragment fragment = new MapsFragment();
-//                                    fragment.setArguments(bundleEmail);
-//                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                                    fragmentTransaction.replace(R.id.container, fragment).commit();
                                     getActivity().getSupportFragmentManager().popBackStack();
                                     return;
                                 }
@@ -326,10 +308,6 @@ public class AddLatLngFragment extends Fragment {
                             public void onSuccess(Void unused) {
                                 Toast.makeText(getActivity(), "Uploaded marker successfully!",
                                         Toast.LENGTH_LONG).show();
-//                                Fragment fragment = new MapsFragment();
-//                                fragment.setArguments(bundleEmail);
-//                                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                                fragmentTransaction.replace(R.id.container, fragment).commit();
                                 deleteUserSuggestedMarker(latitude, longitude);
                                 getActivity().getSupportFragmentManager().popBackStack();
 

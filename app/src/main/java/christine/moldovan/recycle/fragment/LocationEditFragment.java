@@ -223,10 +223,6 @@ public class LocationEditFragment extends Fragment {
                                     newValues.put("descriptionAddress", mapMarker.getDescriptionAddress());
                                     markersRef.child(key).updateChildren(newValues);
                                     Toast.makeText(getActivity(), "Updated marker successfully!", Toast.LENGTH_LONG).show();
-//                                    Fragment fragment = new MapsFragment();
-//                                    fragment.setArguments(bundleEmail);
-//                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                                    fragmentTransaction.replace(R.id.container, fragment).commit();
                                     getActivity().getSupportFragmentManager().popBackStack();
 
                                     return;
